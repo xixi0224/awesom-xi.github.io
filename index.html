@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物照片墙</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>可爱宠物照片墙</h1>
+        <p>发现身边的萌宠，分享它们的故事</p>
+    </header>
+
+    <div class="controls">
+        <!-- 搜索框 -->
+        <div class="search-box">
+            <input 
+                type="text" 
+                id="search-input" 
+                placeholder="搜索宠物名称..." 
+                oninput="searchPets()"  <!-- 输入时触发搜索函数 -->
+            >
+        </div>
+        
+        <div class="control-buttons">
+            <!-- 分类筛选按钮 -->
+            <div class="category-buttons">
+                <button onclick="filterPets('all')">全部</button>
+                <button onclick="filterPets('dog')">狗狗</button>
+                <button onclick="filterPets('cat')">猫咪</button>
+                <button onclick="filterPets('other')">其他</button>
+            </div>
+            
+            <!-- 样式控制按钮 -->
+            <div class="style-buttons">
+                <button onclick="changeBackground()" title="更换背景色">
+                    <span>换背景</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 宠物卡片展示区 -->
+    <div class="pet-gallery">
+        <!-- 狗狗1 -->
+        <div class="pet-card" data-type="dog" data-name="贝贝">
+            <img src="https://img2.baidu.com/it/u=2656618184,4227116481&fm=253&app=138&f=JPEG?w=800&h=1067" alt="一只可爱的金毛犬">
+            <div class="pet-info">
+                <h3>贝贝</h3>
+                <p>🐶 狗狗</p>
+                <button onclick="showDetails('贝贝', '2岁', '玩球、游泳', 'dog')">查看详情</button>
+            </div>
+        </div>
+
+        <!-- 猫咪1 -->
+        <div class="pet-card" data-type="cat" data-name="咪咪">
+            <img src="https://pic.rmb.bdstatic.com/bjh/news/aab395a49bf32228d6509589dbec775f.png" alt="一只橘色的猫咪">
+            <div class="pet-info">
+                <h3>咪咪</h3>
+                <p>🐱 猫咪</p>
+                <button onclick="showDetails('咪咪', '3岁', '睡觉、吃鱼', 'cat')">查看详情</button>
+            </div>
+        </div>
+
+        <!-- 兔子 -->
+        <div class="pet-card" data-type="other" data-name="小白">
+            <img src="https://staticimg.vlian.cn/upload/imgItem/index/IGZ3KLIF_medium.jpg" alt="一只白色的兔子">
+            <div class="pet-info">
+                <h3>小白</h3>
+                <p>🐇 兔子</p>
+                <button onclick="showDetails('小白', '1岁', '吃胡萝卜、跳跃', 'other')">查看详情</button>
+            </div>
+        </div>
+
+        <!-- 仓鼠 -->
+        <div class="pet-card" data-type="other" data-name="球球">
+            <img src="https://img1.baidu.com/it/u=1891785203,2343964172&fm=253&app=138&f=JPEG?w=800&h=1127" alt="一只小仓鼠">
+            <div class="pet-info">
+                <h3>球球</h3>
+                <p>🐹 仓鼠</p>
+                <button onclick="showDetails('球球', '1岁', '滚球、吃瓜子', 'other')">查看详情</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 宠物详情面板 (默认隐藏) -->
+    <div id="details-panel">
+        <div class="details-content">
+            <button class="close-btn" onclick="closeDetails()">×</button>
+            <div id="pet-details"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 宠物照片墙 - 用爱记录每一个萌瞬间</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+    
