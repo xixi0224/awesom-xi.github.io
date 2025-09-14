@@ -1,4 +1,3 @@
-// 显示宠物详情
 function showDetails(name, age, hobby, type) {
     const detailsPanel = document.getElementById('details-panel');
     const petDetails = document.getElementById('pet-details');
